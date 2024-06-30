@@ -43,7 +43,7 @@
         background-color: white;
     }
 
-    .task-actions{
+    .task-actions{ 
         button:first-child{
             background-color:rgb(114, 0, 0) ;
         }
