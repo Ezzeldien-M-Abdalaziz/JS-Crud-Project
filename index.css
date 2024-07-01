@@ -50,19 +50,19 @@ body{
         float: right;
         background-color: white;
         margin-right: 10px;
-        
+        cursor: pointer;
     }
 }
 
 
 .content__task{
     display: flex;
-    background-color: white;
+    background-color:white ;
     padding: 4px;
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid rgb(66, 142, 167);
     border-radius: 3px;
     transition:.3s;
-    margin-bottom: 3px;
+    margin-bottom: 5px;
 }
 .content__task:hover{
     box-shadow: 0px 3px 15px rgba(97, 97, 97, 0.843);
@@ -96,14 +96,31 @@ body{
         button:first-child{
             background-color:rgb(114, 0, 0) ;
             color: white;
+            cursor: pointer;
+
         }
         
         button:nth-child(2){
             background-color:rgb(0  , 150, 30) ;
             color: white;
+            cursor: pointer;
+
         }
         button:nth-child(3){
             background-color:rgb(0  , 16, 179,0.692) ;
             color: white;
+            cursor: pointer;
         }
     }
+
+
+    /* //for toggle */
+
+    .done{
+        background-color: rgb(158, 253, 160);
+    }
+    
+.done-butt{
+    background-color: white;
+    color: red;
+}
