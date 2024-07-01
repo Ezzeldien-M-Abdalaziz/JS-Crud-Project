@@ -106,7 +106,7 @@ taskContainer.addEventListener('click', function (e) {
             tasks.splice(Number(taskIndex), 1);
             addTasks();
         }
-    }
+    } 
 });
 
 //handeling the edit button
