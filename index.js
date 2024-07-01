@@ -31,7 +31,16 @@ let tasks = [     // an array of objects
     }
 ];
 
+function getTasksFromStorage(){
+    let retrievedTasks = JSON.parse(localStorage.getItem('tasks'));
+    if(retrievedTasks == null){
+        tasks = [];
+    }else{
+        tasks = retrievedTasks;
+    }
+}
 
+getTasksFromStorage();
 //list all the tasks in the window
 function addTasks(){
     taskContainer.innerHTML = '';    // empty the container first 
@@ -91,6 +100,8 @@ add.addEventListener('click' , function(e){
         tasks.push(taskObj);
     }
     
+    storeTasks()
+
     addTasks();   
     
 })
@@ -101,9 +112,10 @@ taskContainer.addEventListener('click', function (e) {
     if (target) {
         let taskElement = target.closest('.content__task');
         let taskIndex = taskElement.getAttribute('data-index');
-        let conf = confirm('do you want to delete this task ? ')
-        if(conf){
+        let confirmed = confirm('do you want to delete this task ? ')
+        if(confirmed){
             tasks.splice(Number(taskIndex), 1);
+            storeTasks()
             addTasks();
         }
     } 
@@ -121,6 +133,7 @@ taskContainer.addEventListener('click', function (e) {
             let value = prompt('write the task',tasks[taskIndex].title)
             tasks[taskIndex].title = value;
             if(value){
+                storeTasks()
                 addTasks(); 
             }
         }
@@ -144,8 +157,16 @@ taskContainer.addEventListener('click', function (e) {
             taskElement.classList.remove('done')
             target.classList.remove('done-butt');
             target.innerHTML = '<span class="material-symbols-outlined">check</span>';
-            tasks[taskIndex].isDone = false
+            tasks[taskIndex].isDone = false;   
         }
+    storeTasks()
+
     }
 });
 
+///STORAGE FUNCTION ///
+
+function storeTasks(){
+    let tasksString = JSON.stringify(tasks);
+    localStorage.setItem('tasks',tasksString);
+}
