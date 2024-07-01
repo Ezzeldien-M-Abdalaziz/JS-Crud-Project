@@ -121,7 +121,7 @@ taskContainer.addEventListener('click', function (e) {
             let value = prompt('write the task',tasks[taskIndex].title)
             tasks[taskIndex].title = value;
             if(value){
-                addTasks();
+                addTasks(); 
             }
         }
     }
